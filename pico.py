@@ -1,9 +1,9 @@
 from bme680 import *
-from machine import I2C, Pin
+from machine import SPI, Pin
 import time
-scl = 13
-sda = 12
-bme = BME680_I2C(I2C(0, Pin(scl), Pin(sda)))
+spi = SPI(sck=Pin(2), mosi=Pin(4), miso=Pin(5))
+cs = Pin(3, mode=Pin.OUT, value=1) 
+bme = BME680_I2C(spi)
 
 while(True):
     with open("out.txt", "a") as f:
