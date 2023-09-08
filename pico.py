@@ -3,7 +3,7 @@ from machine import SPI, Pin
 import time
 spi = SPI(sck=Pin(2), mosi=Pin(4), miso=Pin(5))
 cs = Pin(3, mode=Pin.OUT, value=1) 
-bme = BME680_I2C(spi)
+bme = BME680_SPI(spi)
 
 cs(0)
 while(True):
