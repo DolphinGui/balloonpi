@@ -8,5 +8,6 @@ bme = BME680_SPI(spi)
 cs(0)
 while(True):
     with open("out.txt", "a") as f:
-        print(f"{time.time()}, {bme.temperature}, {bme.humidity}, {bme.pressure}, {bme.gas};", file = f)
+        print(f"{time.time()}, {bme.temperature:.4f} C, {bme.humidity:.4f}, {bme.pressure:.4f} hPa, {bme.gas:.4f} %RH;", file = f)
+        f.flush()
         time.sleep(1)
